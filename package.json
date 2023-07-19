@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "nodemon src/index.js --NODE_ENV development",
+    "start:dev": "SET process.env.NODE_ENV=developmecghgnnt && nodemon src/index.js",
     "start:prod": "npm run build && node ./dist/bundle.js",
     "build": "webpack",
     "start:devts": "tsnd -r tsconfig-paths/register ./src/index.js"

@@ -1,14 +1,22 @@
-// import { getUsers, getUser } from '../controllers/userController'
+import userController from "../controllers/userController.js"
+
+const controller = new userController
 
 export const usersRoutes = [
     {
         endpoint: '/api/users',
         method: 'GET',
-        controller: getUsers
+        controller: controller.getData
     },
     {
-        endpoint: '/api/users',
+        endpoint: '/api/users/',
         method: 'GET',
-        controller: getUser
-    }
+        controller: controller.getData
+    },
+    // {
+    //     endpoint: '/api/users/',
+    //     method: 'POST',
+    //     controller: createUser
+    // },
+    
 ]
