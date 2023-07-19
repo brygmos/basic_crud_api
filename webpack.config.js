@@ -1,6 +1,9 @@
-const path = require('path')
-const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack')
+// const path = require('path')
+import * as path from 'path';
+// const Dotenv = require('dotenv-webpack');
+// const webpack = require('webpack')
+import * as webpack from 'webpack'
+import Dotenv from 'dotenv'
 
 module.exports = {
     mode: 'production',

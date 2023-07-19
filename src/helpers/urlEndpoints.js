@@ -9,3 +9,8 @@ export function getUserId(url) {
     if (path[2] == 'users' && path[3] && path[3].length > 1) return path[3];
     return null
 }
+
+export function trimEndSlash(url) {
+    if (url[url.length - 1] == '/') return url.substring(0, url.length - 1);
+    return url
+}

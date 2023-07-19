@@ -1,22 +1,33 @@
-import userController from "../controllers/userController.js"
+import userService from "../services/usersService.js";
+import { getUserId } from '../helpers/urlEndpoints.js';
 
-const controller = new userController
-
-export const usersRoutes = [
-    {
-        endpoint: '/api/users',
-        method: 'GET',
-        controller: controller.getData
-    },
-    {
-        endpoint: '/api/users/',
-        method: 'GET',
-        controller: controller.getData
-    },
-    // {
-    //     endpoint: '/api/users/',
-    //     method: 'POST',
-    //     controller: createUser
-    // },
-    
-]
+export class userRoutes {
+    constructor(routes, userId) {
+        this.userId = userId
+        this.routes  = [
+            {
+            endpoint: '/api/users',
+            method: 'GET',
+            service: userService.getUsers
+            },
+            {
+                endpoint: '/api/users',
+                method: 'POST',
+                service: userService.getUsers
+            },
+            {
+                endpoint: `/api/users/${userId}`,
+                method: 'GET',
+                service: userService.getUser
+            },
+        ]
+    }
+    getRoute (id, method, url) {
+        const userId = getUserId(url)
+        let targetRoute = this.routes
+        targetRoute = this.routes.find(route => {
+            return route.method == method && route.endpoint === url
+        })
+        return targetRoute ? targetRoute : null
+    }
+}
