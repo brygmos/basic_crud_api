@@ -4,8 +4,10 @@ import userController from "./controllers/userController.js"
 export default function startServer () {
     const server = createServer((req, res) => {
     const { method, url } = req;
-    if (url.startsWith('/api/users')) {
+    if (url.startsWith('/api/users') && method == 'GET') {
         userController.getData(req, res) 
+    } else if (url.startsWith('/api/users') && method == 'POST') {
+        userController.postData(req, res) 
     }
     else {
         res.writeHead(400, { 'Content-Type': 'application/json' });
