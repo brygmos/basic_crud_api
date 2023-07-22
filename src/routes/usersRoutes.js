@@ -13,7 +13,7 @@ export class userRoutes {
             {
                 endpoint: '/api/users',
                 method: 'POST',
-                service: userService.getUsers
+                service: userService.postUser
             },
             {
                 endpoint: `/api/users/${userId}`,

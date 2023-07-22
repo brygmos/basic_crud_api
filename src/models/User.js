@@ -7,4 +7,7 @@ export default class User {
         this.age = age,
         this.hobbies = hobbies
     }
+    getId() {
+        return this.id;
+      }
 }
