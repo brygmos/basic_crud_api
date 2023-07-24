@@ -8,8 +8,11 @@ export default function startServer () {
         userController.getData(req, res) 
     } else if (url.startsWith('/api/users') && method == 'POST') {
         userController.postData(req, res) 
-    }
-    else {
+    } else if (url.startsWith('/api/users') && method == 'PUT') {
+        userController.putData(req, res) 
+    } else if (url.startsWith('/api/users') && method == 'DELETE') {
+        userController.deleteData(req, res) 
+    } else {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end('invalid urlll')
     }

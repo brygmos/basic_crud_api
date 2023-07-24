@@ -20,6 +20,11 @@ export class userRoutes {
                 method: 'GET',
                 service: userService.getUser
             },
+            {
+                endpoint: `/api/users/${userId}`,
+                method: 'PUT',
+                service: userService.putUser
+            },
         ]
     }
     getRoute (id, method, url) {
