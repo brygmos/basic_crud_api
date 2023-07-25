@@ -9,5 +9,5 @@ export default class User {
     }
     getId() {
         return this.id;
-      }
+    }
 }

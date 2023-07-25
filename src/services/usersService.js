@@ -9,7 +9,6 @@ export default class userService {
     static getUser (id) {
         const user = db.find((user) => {return user.id === id})
         return user ? user : 'no user'
-        // return user ? JSON.stringify(user) : 'no user'
     }
     static postUser (username, age, hobbies) {
         const user = new User(username, age, hobbies)
